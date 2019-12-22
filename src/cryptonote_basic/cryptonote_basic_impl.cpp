@@ -128,7 +128,7 @@ namespace cryptonote {
   bool get_block_reward(size_t median_size, size_t current_block_size, uint64_t already_generated_coins, uint64_t &reward, uint8_t version, uint64_t height) {
     static_assert(DIFFICULTY_TARGET_V2%60==0&&DIFFICULTY_TARGET_V1%60==0,"difficulty targets must be a multiple of 60");
     uint64_t versionHeight = height; // alias used for emissions
-    uint64_t TOKEN_SUPPLY = version < 7 ? MONEY_SUPPLY_ETN : version < 10 ? MONEY_SUPPLY : version < 16 ? TOKENS : XP_TOKENS;
+    uint64_t TOKEN_SUPPLY = version < 7 ? MONEY_SUPPLY_ETN : version < 10 ? MONEY_SUPPLY : version < 16 ? TOKENS : version < 18 ? XP_TOKENS : XP_COIN;
     const int target = versionHeight < MAINNET_HARDFORK_V7_HEIGHT ? DIFFICULTY_TARGET_V1 : versionHeight >= MAINNET_HARDFORK_V14_HEIGHT ? DIFFICULTY_TARGET_V1 : DIFFICULTY_TARGET_V2;
     const int target_minutes = target / 60;
     const int emission_speed_factor = EMISSION_SPEED_FACTOR_PER_MINUTE - (target_minutes-1); 
@@ -136,7 +136,7 @@ namespace cryptonote {
     const int emission_speed_factor_v3 = EMISSION_SPEED_FACTOR_PER_MINUTE + (target_minutes-2); // v10
     const int emission_speed_factor_v4 = EMISSION_SPEED_FACTOR_PER_MINUTE + (target_minutes+3); // v17 - 24 emf
     const int emission_speed_factor_v5 = EMISSION_SPEED_FACTOR_PER_MINUTE + (target_minutes+9); // v19 - 30 emf 
-    uint64_t emission_speed = (uint64_t)versionHeight < MAINNET_HARDFORK_V7_HEIGHT ? emission_speed_factor : (uint64_t)versionHeight < MAINNET_HARDFORK_V10_HEIGHT ? emission_speed_factor_v2 : (uint64_t)versionHeight < MAINNET_HARDFORK_V17_HEIGHT ? emission_speed_factor_v3 : (uint64_t)versionHeight < MAINNET_HARDFORK_V18_HEIGHT ? emission_speed_factor_v5 : emission_speed_factor_v4;
+    uint64_t emission_speed = (uint64_t)versionHeight < MAINNET_HARDFORK_V7_HEIGHT ? emission_speed_factor : (uint64_t)versionHeight < MAINNET_HARDFORK_V10_HEIGHT ? emission_speed_factor_v2 : (uint64_t)versionHeight < MAINNET_HARDFORK_V17_HEIGHT ? emission_speed_factor_v3 : (uint64_t)versionHeight < MAINNET_HARDFORK_V18_HEIGHT ? emission_speed_factor_v4 : emission_speed_factor_v5;
     uint64_t base_reward = (TOKEN_SUPPLY - already_generated_coins) >> emission_speed;
 
     const uint64_t ETN_premine = 1260000000000U;
