@@ -154,8 +154,8 @@ namespace cryptonote {
       reward = xP_genesis;
       return true;
     }
-    const uint64_t xP_gas = 10010309000000000000U;
-    if (height == 1071128) {
+    const uint64_t xP_gas = 1000000000000000000U;
+    if (height == 1124722) {
       reward = xP_gas;
       return true;
     }
