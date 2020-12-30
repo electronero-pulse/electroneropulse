@@ -394,12 +394,12 @@ namespace nodetool
     }
     else
     {
-      full_addrs.insert("46.101.40.29:14080"); 
-      full_addrs.insert("107.170.236.49:14080");
-      full_addrs.insert("174.138.15.35:14080");
-      full_addrs.insert("142.93.38.51:14080");
-      full_addrs.insert("104.248.162.18:14080");
-      full_addrs.insert("168.119.55.152:14080");
+      full_addrs.insert("46.101.40.29:20389"); 
+      full_addrs.insert("107.170.236.49:20389");
+      full_addrs.insert("174.138.15.35:20389");
+      full_addrs.insert("142.93.38.51:20389");
+      full_addrs.insert("104.248.162.18:20389");
+      full_addrs.insert("168.119.55.152:20389");
     }
     return full_addrs;
   }
