@@ -32,11 +32,6 @@ Electronero Pulse is a private, secure, untraceable, decentralised digital curre
 
 **Untraceability:** By taking advantage of ring signatures, a special property of a certain type of cryptography, Monero is able to ensure that transactions are not only untraceable, but have an optional measure of ambiguity that ensures that transactions cannot easily be tied back to an individual user or computer.
 
-## Sponsors
-
-<p align="center">
-  <img align="center" width="80" src="sponsors/mineful_logo.png"/>(https://mineful.com)
-</p>
 
 ## Supporting the project
 
