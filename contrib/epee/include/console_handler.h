@@ -26,6 +26,9 @@
 
 #pragma once
 
+#include <boost/bind/placeholders.hpp>
+using namespace boost::placeholders;
+
 #include "misc_log_ex.h"
 #include "string_tools.h"
 #include <atomic>
