@@ -26,6 +26,7 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#include <boost/serialization/version.hpp>
 #include "bootstrap_file.h"
 #include "blocksdat_file.h"
 #include "common/command_line.h"
