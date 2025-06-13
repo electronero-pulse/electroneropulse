@@ -29,9 +29,12 @@
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #pragma once
+
+#include <boost/serialization/library_version_type.hpp>
 #include <boost/asio/io_service.hpp>
-#include <boost/serialization/serialization.hpp>
+#define BOOST_SERIALIZATION_VERSION_HPP
 #include <boost/serialization/version.hpp>
+#include <boost/serialization/serialization.hpp>
 #include <boost/serialization/list.hpp>
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/global_fun.hpp>
