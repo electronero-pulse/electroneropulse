@@ -65,9 +65,33 @@ namespace hw {
         size_t   index;
         rct::key Pout;
         rct::key AKout;
-        ABPkeys(const rct::key& A, const rct::key& B, const bool is_subaddr,  size_t index, const rct::key& P,const rct::key& AK);
-        ABPkeys(const ABPkeys& keys) ;
-        ABPkeys() {index=0;is_subaddress=false;}
+        // Constructor
+        ABPkeys(const rct::key& A, const rct::key& B, const bool is_subaddr, size_t index, const rct::key& P, const rct::key& AK)
+            : Aout(A), Bout(B), is_subaddress(is_subaddr), index(index), Pout(P), AKout(AK) {}
+
+        // Copy constructor
+        ABPkeys(const ABPkeys& keys)
+            : Aout(keys.Aout), Bout(keys.Bout), is_subaddress(keys.is_subaddress),
+              index(keys.index), Pout(keys.Pout), AKout(keys.AKout) {}
+
+        // Default constructor
+        ABPkeys() {
+            index = 0;
+            is_subaddress = false;
+        }
+
+        // Copy assignment operator (fixes -Wdeprecated-copy)
+        ABPkeys& operator=(const ABPkeys& other) {
+            if (this != &other) {
+                Aout = other.Aout;
+                Bout = other.Bout;
+                is_subaddress = other.is_subaddress;
+                index = other.index;
+                Pout = other.Pout;
+                AKout = other.AKout;
+            }
+            return *this;
+        }
     };
 
     class Keymap {
