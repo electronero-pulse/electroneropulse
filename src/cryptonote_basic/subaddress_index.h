@@ -88,9 +88,6 @@ namespace std {
   };
 }
 
-// Must come after the struct definition
-BOOST_CLASS_VERSION(cryptonote::subaddress_index, 0)
-
 namespace boost {
   namespace serialization {
     template <class Archive>
@@ -101,4 +98,6 @@ namespace boost {
     }
   }
 }
-  
+
+// Must come after the struct definition
+BOOST_CLASS_VERSION(cryptonote::subaddress_index, 0)
