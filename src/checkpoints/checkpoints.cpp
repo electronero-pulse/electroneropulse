@@ -30,6 +30,9 @@
 
 #include "include_base_utils.h"
 
+#include <boost/bind/placeholders.hpp>
+using namespace boost::placeholders;
+
 using namespace epee;
 
 #include "checkpoints.h"
