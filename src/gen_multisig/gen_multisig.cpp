@@ -35,6 +35,7 @@
  */
 #include <iostream>
 #include <sstream>
+#include <boost/serialization/version.hpp>
 #include <boost/program_options.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>

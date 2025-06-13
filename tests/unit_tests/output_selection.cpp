@@ -27,7 +27,7 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // FIXME: move this into a full wallet2 unit test suite, if possible
-
+#include <boost/serialization/version.hpp> 
 #include "gtest/gtest.h"
 
 #include "wallet/wallet2.h"

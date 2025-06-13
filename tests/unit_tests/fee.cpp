@@ -27,7 +27,7 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
-
+#include <boost/serialization/version.hpp>
 #include "gtest/gtest.h"
 
 #include "cryptonote_core/blockchain.h"

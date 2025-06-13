@@ -25,12 +25,12 @@
 // INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 #pragma once
 
+#include <boost/serialization/version.hpp>
 #include "serialization/keyvalue_serialization.h"
 #include <boost/serialization/serialization.hpp>
-#include <boost/serialization/version.hpp>
+
 #include <ostream>
 
 namespace cryptonote
@@ -39,9 +39,16 @@ namespace cryptonote
   {
     uint32_t major;
     uint32_t minor;
-    bool operator==(const subaddress_index& rhs) const { return !memcmp(this, &rhs, sizeof(subaddress_index)); }
-    bool operator!=(const subaddress_index& rhs) const { return !(*this == rhs); }
-    bool is_zero() const { return major == 0 && minor == 0; }
+
+    bool operator==(const subaddress_index& rhs) const {
+      return !memcmp(this, &rhs, sizeof(subaddress_index));
+    }
+    bool operator!=(const subaddress_index& rhs) const {
+      return !(*this == rhs);
+    }
+    bool is_zero() const {
+      return major == 0 && minor == 0;
+    }
 
     BEGIN_SERIALIZE_OBJECT()
       FIELD(major)
@@ -62,21 +69,16 @@ namespace cryptonote {
   }
 }
 
-namespace std
-{
+namespace std {
   template <>
   struct hash<cryptonote::subaddress_index>
   {
-    size_t operator()(const cryptonote::subaddress_index& index ) const
+    size_t operator()(const cryptonote::subaddress_index& index) const
     {
       size_t res;
       if (sizeof(size_t) == 8)
-      {
         res = ((uint64_t)index.major << 32) | index.minor;
-      }
-      else
-      {
-        // https://stackoverflow.com/a/17017281
+      else {
         res = 17;
         res = res * 31 + hash<uint32_t>()(index.major);
         res = res * 31 + hash<uint32_t>()(index.minor);
@@ -86,17 +88,16 @@ namespace std
   };
 }
 
-BOOST_CLASS_VERSION(cryptonote::subaddress_index, 0)
-
-namespace boost
-{
-  namespace serialization
-  {
+namespace boost {
+  namespace serialization {
     template <class Archive>
-    inline void serialize(Archive &a, cryptonote::subaddress_index &x, const boost::serialization::version_type ver)
+    inline void serialize(Archive &a, cryptonote::subaddress_index &x, const boost::serialization::version_type /*ver*/)
     {
       a & x.major;
       a & x.minor;
     }
   }
 }
+
+// Must come after the struct definition
+BOOST_CLASS_VERSION(cryptonote::subaddress_index, 0)

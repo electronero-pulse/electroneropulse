@@ -28,6 +28,7 @@
 
 #pragma once
 
+#include <boost/serialization/version.hpp>
 #include <boost/iostreams/stream_buffer.hpp>
 #include <boost/iostreams/stream.hpp>
 #include <boost/iostreams/device/back_inserter.hpp>

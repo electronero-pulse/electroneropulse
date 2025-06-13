@@ -32,6 +32,7 @@
 #include <random>
 #include <tuple>
 #include <boost/format.hpp>
+#include <boost/serialization/version.hpp>
 #include <boost/optional/optional.hpp>
 #include <boost/utility/value_init.hpp>
 #include <boost/algorithm/string/classification.hpp>

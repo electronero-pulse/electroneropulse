@@ -76,24 +76,6 @@ namespace hw {
     /* ===                        Keymap                                ==== */
     /* ===================================================================== */
 
-    ABPkeys::ABPkeys(const rct::key& A, const rct::key& B, const bool is_subaddr, const size_t real_output_index, const rct::key& P, const rct::key& AK) {
-      Aout = A;
-      Bout = B;
-      is_subaddress = is_subaddr;
-      index = real_output_index;
-      Pout = P;
-      AKout = AK;
-    }
-
-    ABPkeys::ABPkeys(const ABPkeys& keys) {
-      Aout = keys.Aout;
-      Bout = keys.Bout;
-      is_subaddress = keys.is_subaddress;
-      index = keys.index;
-      Pout = keys.Pout;
-      AKout = keys.AKout;
-    }
-
     bool Keymap::find(const rct::key& P, ABPkeys& keys) const {
       size_t sz = ABP.size();
       for (size_t i=0; i<sz; i++) {

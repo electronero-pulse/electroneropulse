@@ -13,7 +13,10 @@
 
 find_path(BERKELEY_DB_INCLUDE_DIR db_cxx.h
   /usr/include/db4
+  /usr/include/db5.3
+  /usr/include
   /usr/local/include/db4
+  /usr/local/include
 )
 
 find_library(BERKELEY_DB_LIBRARIES NAMES db_cxx )
