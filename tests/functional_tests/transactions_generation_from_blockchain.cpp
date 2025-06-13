@@ -27,7 +27,7 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
-
+#include <boost/serialization/version.hpp>
 #include "include_base_utils.h"
 using namespace epee;
 #include "wallet/wallet2.h"
